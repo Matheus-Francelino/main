@@ -44,6 +44,7 @@ O pipeline foi desenvolvido para orquestrar três etapas de processamento de dad
     o	A URL do endpoint do Logic App, será chamado em caso de falha. Este endpoint aciona o fluxo de envio de e-mail, enviando informações personalizadas sobre a falha, como o nome da atividade, mensagem de erro, e detalhes adicionais para serem usados na notificação por e-mail.
 
 ![image](https://github.com/user-attachments/assets/4d82f51b-58bc-49c8-a2e4-00f3e1a0089f)
+
 Fonte:https://learn.microsoft.com/pt-br/azure/data-factory/how-to-send-email
 
 
