@@ -17,3 +17,25 @@ Todo processo de Orquestração de Notebooks é feito via Pipeline no Azure Data
 ![image](https://github.com/user-attachments/assets/a747a86c-2798-40c0-afbd-f185336c6494)
 
 
+
+O pipeline foi desenvolvido para orquestrar três etapas de processamento de dados utilizando notebooks do Databricks, correspondendo às camadas Bronze, Silver e Gold, com monitoramento e notificação de falhas automatizados. Cada atividade do pipeline está configurada da seguinte forma:
+
+1. Atividade Databricks para Bronze, Silver e Gold
+•	Configuração de Linked Service:
+o	Cada atividade do Databricks no pipeline é configurada para se conectar a um Linked Service previamente criado. Esse Linked Service define a conexão com o workspace do Databricks, incluindo:
+	URL do Databricks Workspace: Fornece o ponto de conexão.
+	Token de Autenticação: Utilizado para autorização segura de acesso ao Databricks.
+	Cluster: Especifica o cluster onde o notebook será executado, garantindo os recursos necessários para cada etapa.
+•	Configuração de Cada Atividade:
+o	Notebook Path: Caminho completo do notebook no Databricks que será executado. Cada notebook é responsável por uma camada do pipeline:
+	Bronze: Ingestão de dados brutos.
+	Silver: Limpeza e transformação intermediária.
+	Gold: Agregações final.
+
+3. Atividade Web (email falha) para Envio de E-mail via Logic App
+•	Configuração da Atividade Web:
+o	Cada atividade do Databricks está conectada a uma atividade Web que é acionada em caso de falha. Essa atividade Web está configurada para fazer uma chamada HTTP POST para a URL do Logic App.
+o	A URL do endpoint do Logic App, será chamado em caso de falha. Este endpoint aciona o fluxo de envio de e-mail, enviando informações personalizadas sobre a falha, como o nome da atividade, mensagem de erro, e detalhes adicionais para serem usados na notificação por e-mail.
+
+
+
