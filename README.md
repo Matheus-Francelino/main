@@ -12,3 +12,7 @@ No notebook silver, realiza-se um tratamento de dados duplicados na coluna “co
 
 Por fim  o notebook gold, realiza agregação final, além de também garantir a unicidade dos dados antes de se realizar o “Merge” na tabela gold.
 
+Todo processo de Orquestração de Notebooks é feito via Pipeline no Azure Data Factory:
+![image](https://github.com/user-attachments/assets/a747a86c-2798-40c0-afbd-f185336c6494)
+
+
